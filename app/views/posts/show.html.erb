@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div id="showimg">
 <%=image_tag @post.image.url(:large) %>
-
+</div>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -13,7 +14,7 @@
 </p>
 
 <p class="date">
-  submitted <%= time_ago_in_words(@post.created_at) %> Ago
+  Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 </p>
 
 

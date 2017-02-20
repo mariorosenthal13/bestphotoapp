@@ -111,9 +111,10 @@
  	margin-left: 196px;
  	#header {
  		padding: 1em 3em;
- 	// 	border-bottom: 1px solid #d6dce0;
+    width:100%;
  		background: #f5f7f9;
  		color: #9eafba;
+    clear: both;
  		p {
  			display: inline;
  		}
@@ -122,6 +123,7 @@
  			text-decoration: none;
  		}
  		.buttons {
+
  			float: right;
  			margin-top: -34px;
  			.button {
@@ -266,4 +268,10 @@
  			color: #33acb7;
  		}
  	}
+ }
+ #postenddiv{
+   border-bottom: solid 1px black;
+ }
+ #showimg {
+    margin-left: 33px;
  }

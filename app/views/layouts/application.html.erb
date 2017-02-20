@@ -3,19 +3,20 @@
   <head>
     <title>Photoapp</title>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', 'https://use.fontawesome.com/c6fdab7b37.js' %>
     <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/c6fdab7b37.js">
   </head>
 
   <body>
     <div id="sidebar">
       <div class="logo">
-
         <%= link_to root_path do %>
         <%= image_tag "/P1-AppIcon.png" %>
         <%end %>
-
       </div>
 
 
@@ -24,6 +25,7 @@
         <li class="category">Website</li>
         <li> <%= link_to "Post", root_path %></li>
         <li>About</li>
+        <li><i class="fa fa-window-close" aria-hidden="true"></i></li>
       </ul>
 
       <ul>
@@ -52,9 +54,6 @@
 
         <%= yield %>
       </div>
-
-
     </div>
-
   </body>
 </html>

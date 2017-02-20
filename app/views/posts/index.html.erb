@@ -15,10 +15,10 @@
         <li><%= post.created_at.strftime("%B, %d, %Y") %></li>
       </ul>
       <ul>
-      <div style="border-bottom: 1px solid blue;">
+      <div id="postenddiv">
       <%= link_to 'Show', post %>
       <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <i class="fa fa-window-close" aria-hidden="true"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></i>
       </div>
       </ul>
     <% end %>
