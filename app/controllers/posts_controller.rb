@@ -30,7 +30,6 @@ class PostsController < ApplicationController
       else
         render :new
       end
-
   end
 
   # PATCH/PUT /posts/1
@@ -41,15 +40,14 @@ class PostsController < ApplicationController
       else
         render :edit
       end
-
   end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
-  def destroy
-    @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
-  end
+    def destroy
+      @post.destroy
+      redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    end
   end
 
   private
