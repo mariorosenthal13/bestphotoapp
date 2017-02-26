@@ -1,82 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag 'favicon.ico' %>
     <title>Photoapp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', 'https://use.fontawesome.com/c6fdab7b37.js' %>
-    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/materialize.min.css"  media="screen,projection"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-
+<!-- BEGIN BODY -->
   <body>
-    <nav class="nav-extended">
-  <div class="nav-wrapper">
-    <div>
-      <%= link_to root_path do %>
-      <%= image_tag "/P1-AppIcon.png" %>
-      <%end %>
-    </div>
-    <ul class="right hide-on-med-and-down">
-      <li><a>A link</a></li>
-      <li><a>A second link</a></li>
-      <li><a>A third link</a></li>
-    </ul>
-  </div>
-  <div class="nav-content">
-    <span class="nav-title">PhotoApp</span>
-    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-      <i class="material-icons">add</i>
-    </a>
-  </div>
-</nav>
-      <div id="sidebar">
-        <ul>
-          <li class="category">Website</li>
-          <li><%= link_to "Post", root_path %></li>
-          <li><%= link_to "About", about_path %></li>
-          <li><i class="fa fa-window-close" aria-hidden="true"></i></li>
+    <nav class="nav-extended brown lighten-4">
+      <div class="nav-wrapper">
+        <div class="center">
+          <%= link_to root_path do %>
+          <%= image_tag "/P1-AppIcon.png" %>
+          <%end %>
+        </div>
+        <ul class="right">
+          <li><%= link_to "New Post",new_post_path%></li>
+          <li><%= link_to "Posts", root_path %></li>
+          <li><%= link_to "Abouts", about_path %></li>
         </ul>
-        <ul>
-          <li class="category">Social</li>
-          <li><a href="https://github.com">Github</a></li>
-          <li><a href="https://twitter.com">Twitter</a></li>
-          <li><a href="mailto:mario.f.rosenthal@gmail.com">Email</a></li>
-        </ul>
+        <%= link_to new_post_path do%>
+        <i class="fa fa-plus-circle"></i>
+        <% end %>
       </div>
-
-      <div id="main_content">
+      <div class="nav-content">
+        <span class="nav-title center">PhotoApp</span><br>
+        <% if current_user %>
+        Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card-panel">
 
 <!-- SHOW IF USER IS LOGGED IN -->
-        <% if current_user %>
-          Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-        <% else %>
-          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-        <% end %>
-
-
-        <div id="header">
-          
-          <div class="buttons">
-            <button class="button"><%= link_to "New Post", new_post_path %></button>
-          </div>
-        </div>
+<div><%= link_to   new_post_path do %>
+  <i class="fa fa-plus-circle f-2" aria-hidden="true"></i>
+<%end %></div>
 
         <% flash.each do |name, msg|  %>
         <%= content_tag(:div, msg, class: "alert") %>
         <% end %>
 
         <%= yield %>
+        </div>
+        </div>
+        </div>
+        <footer class="page-footer brown lighten-4">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">PhotoApp</h5>
+                <p class="grey-text text-lighten-4">Post your photos , commit them to eternity</p>
+              </div>
 
-
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Mario Designs
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   </body>
 </html>
