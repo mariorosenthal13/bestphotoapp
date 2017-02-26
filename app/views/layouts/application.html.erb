@@ -12,22 +12,19 @@
   </head>
 
   <body>
+    <!-- SIDE BAR NAV -->
     <div id="sidebar">
       <div class="logo">
         <%= link_to root_path do %>
         <%= image_tag "/P1-AppIcon.png" %>
         <%end %>
       </div>
-
-
-
       <ul>
         <li class="category">Website</li>
         <li><%= link_to "Post", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><i class="fa fa-window-close" aria-hidden="true"></i></li>
       </ul>
-
       <ul>
         <li class="category">Social</li>
         <li><a href="https://github.com">Github</a></li>
@@ -36,9 +33,16 @@
       </ul>
       </div>
 
-
-
       <div id="main_content">
+
+<!-- SHOW IF USER IS LOGGED IN -->
+        <% if current_user %>
+          Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <% end %>
+
+
         <div id="header">
           <h2>PhotoApp</h2>
           <div class="buttons">
